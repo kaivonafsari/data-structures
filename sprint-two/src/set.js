@@ -19,11 +19,12 @@ setPrototype.contains = function(item){
 };
 
 setPrototype.remove = function(item){
-  delete this._storage[this._storage.indexOf(item)]
-  for (var i = 0; i < this._storage.indexOf(item); i++) {
-    this._storage[i] = this._storage[i + 1];
-  }
-  delete this._storage[this._storage.length];
+  // delete this._storage[this._storage.indexOf(item)]
+  // for (var i = 0; i < this._storage.indexOf(item); i++) {
+  //   this._storage[i] = this._storage[i + 1];
+  // }
+  // delete this._storage[this._storage.length];
+  this._storage.splice(this._storage[this._storage.indexOf(item), this._storage.indexOf(item)+1])
 };
 
 /*
