@@ -10,20 +10,31 @@ var BinarySearchTree = function(value){
 
 };
 
-BinarySearchTree.prototype.insert(value){
-  if (!this.left && !this.right) {
-    this.left = value;
+BinarySearchTree.prototype.insert= function(val){
+  if (this.value > val) {
+    if (this.left) {
+      // left has a lower tree, go down please
+    this.left.insert(val);
+    } else {
+      // no left tree, left is empty
+      this.left = BinarySearchTree(val);
+    }
   }
 
-  if (this.left) {
-    this.right = value;
+
+  if (this.value < val) {
+    if (this.right) {
+      this.right.insert(val);
+    } else {
+      this.right = BinarySearchTree(val);
+    }
   }
 
 
 
 };
 
-BinarySearchTree.prototype.contains(val){
+BinarySearchTree.prototype.contains= function(val){
   var answer = false;
 
   var finder = function(node, val){
@@ -46,42 +57,14 @@ BinarySearchTree.prototype.contains(val){
 
 };
 
+BinarySearchTree.prototype.depthFirstLog = function(){};
+
 
 /*
  * Complexity: What is the time complexity of the above functions?
  */
 
 
-{
-
-
-  value: 8,
-  left: {
-          value: 3,
-          left {  value: 1,
-                  left: null,
-                  right: null
-               },
-          right: {
 
 
 
-                }
-
-
-          }
-
-
-}
-
-if(!this.left && !this.right){
-
-    if(inputNode > this.value){
-        this.right = inputNode
-    }
-
-
-
-
-
-}
