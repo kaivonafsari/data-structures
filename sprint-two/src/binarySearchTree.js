@@ -39,6 +39,7 @@ BinarySearchTree.prototype.contains= function(val){
 
   var finder = function(node, val){
 
+    if(!node) return;
     if (node.value === val) {
       answer = true;
     }
@@ -57,7 +58,16 @@ BinarySearchTree.prototype.contains= function(val){
 
 };
 
-BinarySearchTree.prototype.depthFirstLog = function(){};
+BinarySearchTree.prototype.depthFirstLog = function(callback){
+  callback(this.value);
+  if (this.left) {
+  this.left.depthFirstLog(callback);
+  }
+
+  if (this.right) {
+  this.right.depthFirstLog(callback);
+  }
+};
 
 
 /*
